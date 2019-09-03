@@ -1,5 +1,5 @@
 run:
-	env FLASK_APP=run.py flask run
+	flask run --host 0.0.0.0
 tests:
 	pytest
 lint:
