@@ -16,7 +16,7 @@ def sort_result(result):
     return sorted(result, key=lambda k: (k['count'], k['time']))
 
 def test_answer():
-    assert func(3) == 4
+    assert func(3) == 5
 
 def test_sort_result():
     result1 = [
