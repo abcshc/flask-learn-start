@@ -23,8 +23,4 @@ deploy:
       repo: abcshc/flask-learn-start
       branch: master
     notifications:
-      slack: 
-        rooms: 
-          - heechul:OLMi8GkNGrgK5JJdpWOED66T#notification
-        on_success: always
-        on_failure: always
+      slack: heechul:3FiUVJdX2JX2jDPrdZMdpq1q
