@@ -4,7 +4,13 @@ install:
   - pip install -r requirements.txt
 script:
   - pytest
-before_deploy: "echo 'Start deploy...'"
+before_deploy: 
+  - "echo 'Start deploy...'"
+  - zip -r flask-deploy *
+  - mkdir -p deploy
+  - mv flask-deploy.zip deploy/flask-deploy.zip
+
+
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY
@@ -13,7 +19,12 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: public_read
+    local_dir: deploy
     wait-until-deployed: true
     on:
       repo: abcshc/flask-learn-start
       branch: master
+    notifications:
+      slack: heechul:OLMi8GkNGrgK5JJdpWOED66T
+        on_success: always
+        on_failure: always
